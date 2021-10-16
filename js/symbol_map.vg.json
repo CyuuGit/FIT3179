@@ -1,0 +1,66 @@
+{
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+                "url":
+                        "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/fire_data.csv"
+        },     
+        "vconcat": [{
+                "width": "container",
+                "height": "container",
+                "layer": [
+                        {
+                                "data": { 
+                                        "url":
+                                        "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/australia.topojson",
+                                        "format": {"type": "topojson", "feature": "Australia"}
+                                },
+                                "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+                        },
+                        {
+                                "transform": [{"filter": {"param": "brush"}}],
+                                "mark": {
+                                        "type": "circle"
+                                },
+                                "encoding":{
+                                        "longitude": {"field": "longitude", "type": "quantitative"},
+                                        "latitude": {"field": "latitude", "type": "quantitative"},
+                                        "color": {
+                                                "field": "temp1",
+                                                "type": "quantitative",
+                                                "scale":{
+                                                        "type": "threshold",
+                                                        "domain":[250, 300, 350],
+                                                        "scheme": "reds"
+                                                },
+                                                "title": "Brightness Temperature of Fire Pixel measured from space in Kelvin "
+                                        }
+                                }
+                        }
+                ]
+        },
+        {  
+                "width": "container",
+                "height": 50,
+                "layer": [{
+                        "params": [{
+                                "name": "brush",
+                                "select": {"type": "interval", "encodings": ["x"]}
+                        }],
+                "mark": "line",                 
+                "encoding": {
+                        "x": {
+                                "field": "acq_date",
+                                "timeUnit": "yearmonthdate",
+                                "title": "Select a range of dates"
+                        },
+                        "y": {
+                                "field": "temp1",
+                                "type": "quantitative",
+                                "title": null,
+                                "axis": null
+                        },
+                        "color": {"value": "black"} 
+                }}]
+        }]
+}
+
