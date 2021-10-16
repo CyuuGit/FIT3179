@@ -19,10 +19,12 @@
 <body>
   <div class="page">
     <div class="container">
-      <h1>Impact of the Black Summer in Victoria</h1>
+      <h1>The Black Summer of Australia</h1>
       <div class="row">
         <div class="text">
-          <p>The 2019 - 2020 Australian bushfire season, also known as the Black Summer, was a period of intense bushfires that occurred throughout Australia. The fires started in June 2019 and lasted for months, with the final fire extinguished in early May 2020.</p>
+          <p>The 2019-2020 Australian Bushfire Season, also known as the Black Summer, was a period of intense bushfires that raged throughout Australia. The fires started in June 2019, burning over 17 million hectares of land, destroying 3000 homes, killing or displacing approximately 3 billion animals, and claiming 33 lives. With the assistance of international aid, the final fires were extinguished early May 2020, ending the yearlong tragedy.
+            This visualisation explores the impact that the Black Summer had on the individual states and cities of Australia, as well as provide a visual demonstration of how deadly these bushfires can be, reminding how important it is to plan and prepare when at risk of fire.
+            </p>
           <div id="map" class="map"></div>
         </div>
       </div>
@@ -42,6 +44,15 @@
       </div>
       
       <div class="container">
+        <h2>Temperature Observations</h2>
+        <div class="row">
+          <div class="text">
+            <div id="heat" class="map"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
         <h2>Change in Air Quality</h2>
         <div class="row">
           <div class="text">
@@ -50,6 +61,7 @@
         </div>
       </div>
     
+      
       
 
   </div>
@@ -70,6 +82,13 @@
   
   var spec2 = "js/line_chart.vg.json";
   vegaEmbed("#line", spec2, { actions: false })
+    .then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    })
+    .catch(console.error);
+
+    var spec2 = "js/heatmap.vg.json";
+  vegaEmbed("#heat", spec2, { actions: false })
     .then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     })

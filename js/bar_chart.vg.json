@@ -10,28 +10,30 @@
 	"data": {
 		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/table1.csv"
 	},
-	
-	"encoding": {
-		"x": {
-			"field": "state", 
-			"type": "nominal", 
-			"title": "Jurisdiction"
-		}
-	},
 	"layer": [
 		{
-			"mark": {"type": "bar", "xOffset": -20, "size": 30, "color": "DarkRed"},
+			"mark": {"type": "bar", "xOffset": -15, "size": 25, "color": "DarkRed"},
 			"encoding": {
+				"x": {
+					"field": "state", 
+					"type": "nominal", 
+					"title": "Jurisdiction"
+				},
 				"y": {
 					"field": "fire",
 					"type": "quantitative",
-					"axis": {"title": "Area in '000 hectares"}
+					"axis": {"title": "Area (10^3 hectares)"}
 				}
 			}
 		},
 		{
-			"mark": {"type": "bar", "xOffset": 20, "size": 30,"color": "GoldenRod"},
+			"mark": {"type": "bar", "xOffset": 15, "size": 25,"color": "DarkOliveGreen"},
 			"encoding": {
+				"x": {
+					"field": "state", 
+					"type": "nominal", 
+					"title": "Jurisdiction"
+				},
 				"y": {
 					"field": "forest",
 					"type": "quantitative"
@@ -50,7 +52,7 @@
 				"fill": {
 					"field": "legendTitle",
 					"type": "nominal",
-					"scale": {"range": ["DarkRed", "GoldenRod"]},
+					"scale": {"range": ["DarkRed", "DarkOliveGreen"]},
 					"legend": {"title": null, "symbolType": "circle", "orient": "bottom"}
 				}
 			}

@@ -1,9 +1,10 @@
-﻿state,fire,forest,proportion
-Australian Capital Territory,90,83,93
-New South Wales,5681,5122,90
-Northern Territory,0,0,0
-Queensland,419,370,88
-South Australia,313,137,44
-Tasmania,42,29,70
-Victoria,1583,1457,92
-Western Australia,2044,1143,56
+﻿State,fire_area,forest_area,total_native,total_commercial,total_other,burnt_area,burnt_native,burnt_commercial,burnt_other,proportion
+Australian Capital Territory,90,142,130,7,5,83,83,0,0,93
+New South Wales,5681,20368,19925,380,62,5122,5014,92,16,90
+Northern Territory,0,23735,23686,45,4,0,0,0,0,0
+Queensland,419,51830,51580,229,21,370,367,3,0,88
+South Australia,313,5060,4856,178,25,137,118,17,2,44
+Tasmania,42,3699,3342,311,46,29,27,3,0,70
+Victoria,1583,8222,7645,415,162,1457,1444,10,3,92
+Western Australia,2044,20981,20450,383,148,1143,1138,4,0,56
+Total,10172,134037,131614,1948,473,8341,8191,129,21,82

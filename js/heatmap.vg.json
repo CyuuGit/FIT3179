@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Max Temperature during Black Summer",
     "data": {
         "url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/weather.csv"
     },

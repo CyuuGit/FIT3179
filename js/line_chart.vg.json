@@ -1,9 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
   "data": {"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/air_quality.csv"},
   "params": [{
+    "name": "city_highlight",
+    "value": "Melbourne",
+    "select": {"type": "point", "fields": ["City"]},
+    "bind": "legend"
+  },
+  {
     "name": "city_selection",
     "value": "Melbourne",
     "bind": {
@@ -17,28 +22,33 @@
         "Adelaide", "Brisbane", "Canberra", "Darwin", "Hobart", "Launceston", "Melbourne", "Newcastle", "Perth", "Sydney", "Wollongong"
       ],
       "name": "City Selection: "
-    }
-
-  }],
+  }}],
   "transform": [
-
       {"filter": "datum.Specie == 'pm25'"},
-      {"filter": "city_selection == null ||datum.City == city_selection"}
+      {"filter": "city_selection == null || datum.City == city_selection"}
   ],
   "mark": {
     "type": "line"
   },
   "encoding": {
-    "x": {"timeUnit": "yearmonthdate", "field": "Date", "type":"ordinal"},
-    "y": {"field": "Median", "type": "quantitative"},
+    "x": {"timeUnit": "yearmonthdate", "field": "Date", "type": "ordinal"},
+    "y": {"aggregate": "max", "field": "Max", "type": "quantitative"},
     "color": {"field": "City", "type": "nominal",
-      "scale": {
-        "domain": [
+      "scale": {"domain": [
           "Adelaide", "Brisbane", "Canberra", "Darwin", "Hobart", "Launceston", "Melbourne", "Newcastle", "Perth", "Sydney", "Wollongong"
         ],
         "range": [
           "#A93226", "#9B59B6", "#2980B9", "#4FC3F7", "#1ABC9C", "#9E9D24", "#F1C40F", "#E67E22", "#795548", "#7F8C8D", "#273746"
-        ]
-      }}
-  }
+        ]}
+      
+    },
+    "opacity": {
+      "condition": {"param": "city_highlight", "value": 1},
+      
+      "value": 0.1
+    }
+  },
+  "config": {"legend": {"orient": "bottom", "direction": "horizontal"}}
 }
+
+
