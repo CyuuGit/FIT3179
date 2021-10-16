@@ -1,4 +1,4 @@
-﻿State,Station,acq_date,Min °C,Max °C
+﻿State,Station,acq_date,Min,Max
 ACT,70351,2019-06-01,-0.7,15.2
 ACT,70351,2019-06-02,-1.6,15.7
 ACT,70351,2019-06-03,2.9,11.4
