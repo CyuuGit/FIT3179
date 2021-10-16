@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/weather.csv"
+    },
+    "params": [{
+        "name": "city_selection",
+        "value": "86338",
+        "bind": {
+          "input": "select",
+          "options": [
+            "23090", "40913", "70351", "14015", "94029", "86338", "9225", "66062"
+          ],
+          "labels": [
+            "Adelaide", "Brisbane", "Canberra", "Darwin", "Hobart", "Melbourne", "Perth", "Sydney"
+          ],
+          "name": "City Selection: "
+        }
+    }],
+    "transform": [
+        {"filter": "datum.Station == city_selection"}
+    ],
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "acq_date",
+            "timeUnit": "date",
+            "type": "ordinal",
+            "title": "Day",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e"
+            }
+        },
+        "y": {
+            "field": "acq_date",
+            "timeUnit": "yearmonth",
+            "type": "ordinal",
+            "title": "Month"
+        },
+        "color": {
+            "field": "Max",
+            "type": "quantitative",
+            "legend": {
+                "title": null
+            },
+            "scale": {"scheme": "goldred"}
+        },
+        "tooltip": [
+            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "Station", "type": "nominal", "title": "Station Number"},
+            {
+                "field": "Min",
+                "type": "quantitative",
+                "title": "Minimum Temperature (Celsius)"
+            },
+            {
+                "field": "Max",
+                "type": "quantitative",
+                "title": "Maximum Temperature (Celsius)"
+            }
+        ]
+    },
+    "config": {
+    "view": {
+          "strokeWidth": 0,
+          "step": 13
+      },
+      "axis": {
+          "domain": false
+      }
+  }
+}
