@@ -1,0 +1,84 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"description": "A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.",
+	"background": "transparent",
+	"data": {
+		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/table1.csv"
+	},
+	"params": [
+	{
+		"name": "city_selection",
+		"value": "Total",
+		"bind": {
+		  "input": "select",
+		  "options": [
+			"Total",
+			"Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"
+		  ],
+		  "labels": [
+			"Show All",
+			"Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"
+		  ],
+		  "name": "City Selection: "
+	  }}],
+	"hconcat":[{
+		"title": "Area distribution of different forests",
+				"mark": "arc",
+				"transform": [
+					{"filter": "datum.State == city_selection"},
+					{"fold": ["total_native","total_commercial","total_other"], "as": ["forest","forest_value"]}],
+				"encoding": {
+					"theta": {"field": "forest_value", "type":"quantitative"},
+					"color": {"field": "forest", "type":"nominal"},
+					"tooltip": [
+					{"field": "total_native", "type": "quantitative", "title": "Area of Native Forest "},
+					{"field": "total_commercial", "type": "quantitative", "title": "Area of Commercial Forest "},
+					{"field": "total_other", "type": "quantitative", "title": "Area of Other Forest "}
+					]
+				}
+	},			
+	{
+		"title": "Area distribution of forests that were burned",
+		"mark": "arc",
+				"transform": [
+					{"filter": "datum.State == city_selection"},
+					{"fold": ["burnt_native","burnt_commercial","burnt_other"], "as": ["burnt","burnt_value"]}],
+				"encoding": {
+					"theta": {"field": "burnt_value", "type":"quantitative"},
+					"color": {"field": "burnt", "type":"nominal"},
+					"tooltip": [
+					{"field": "burnt_native", "type": "quantitative", "title": "Area of Burnt Native Forest "},
+					{"field": "burnt_commercial", "type": "quantitative", "title": "Area of Burnt Commercial Forest "},
+					{"field": "burnt_other", "type": "quantitative", "title": "Area of Burnt Other Forest "}
+					]
+				}		
+	},
+	{
+		"title": "Proportion of forest area that was burned",
+		"mark": "arc",
+		"transform": [
+			{"filter": "datum.State == city_selection"},
+			{"calculate": "(datum.forest_area - datum.burnt_area)/datum.forest_area*100", "as": "proportion_forest"},
+			{"calculate": "100 - datum.proportion_forest", "as":"proportion_burned"},
+			{"fold": ["proportion_forest", "proportion_burned"], "as": ["proportion1","value1"]}
+		],
+		"encoding": {
+			"theta": {"field": "value1", "type": "quantitative"},
+			"color": {"field":"proportion1", "type":"nominal"},
+			"tooltip": [
+				{"field": "proportion_forest", "type":"quantitative", "title":"Forest unaffected"},
+				{"field": "proportion_burned", "type":"quantitative", "title":"Forest burned"}
+
+			]
+		}
+	}],
+	"config": {
+		"legend": {
+			"orient": "bottom", 
+			"direction": "horizontal",
+			"title": null
+		}
+	}
+}
+
+	

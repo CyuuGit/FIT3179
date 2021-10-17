@@ -1,63 +1,89 @@
 {
 	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-	"description": "A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.",
 	"title": {
-		"text": "Comparing fire damage of different States", 
+		"text": "Comparing fire damage of different States",
 		"fontSize": 20
 	},
 	"width": "container",
-	"height": "container",
+	"background": "transparent",
 	"data": {
 		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/table1.csv"
 	},
 	"layer": [
 		{
-			"mark": {"type": "bar", "xOffset": -15, "size": 25, "color": "DarkRed"},
+			"mark": {
+				"type": "bar",
+				"xOffset": -15,
+				"size": 25,
+				"color": "DarkRed"
+			},
 			"encoding": {
 				"x": {
-					"field": "state", 
-					"type": "nominal", 
+					"field": "State",
+					"type": "nominal",
 					"title": "Jurisdiction"
 				},
 				"y": {
-					"field": "fire",
+					"field": "fire_area",
 					"type": "quantitative",
-					"axis": {"title": "Area (10^3 hectares)"}
+					"axis": {
+						"title": "Area (10^3 hectares)"
+					}
 				}
 			}
 		},
 		{
-			"mark": {"type": "bar", "xOffset": 15, "size": 25,"color": "DarkOliveGreen"},
+			"mark": {
+				"type": "bar",
+				"xOffset": 15,
+				"size": 25,
+				"color": "DarkOliveGreen"
+			},
 			"encoding": {
 				"x": {
-					"field": "state", 
-					"type": "nominal", 
+					"field": "State",
+					"type": "nominal",
 					"title": "Jurisdiction"
 				},
 				"y": {
-					"field": "forest",
+					"field": "burnt_area",
 					"type": "quantitative"
 				}
 			}
 		},
 		{
-			"mark": {"type": "text"},
-			"data":{ 
+			"mark": {
+				"type": "text"
+			},
+			"data": {
 				"values": [
-					{"name": "Fire Area", "legendTitle": "Fire Area"},
-					{"name": "Forest Area within Fire Area", "legendTitle": "Forest Area within Fire Area"}
+					{
+						"name": "Fire Area",
+						"legendTitle": "Fire Area"
+					},
+					{
+						"name": "Forest Area within Fire Area",
+						"legendTitle": "Forest Area within Fire Area"
+					}
 				]
 			},
 			"encoding": {
 				"fill": {
 					"field": "legendTitle",
 					"type": "nominal",
-					"scale": {"range": ["DarkRed", "DarkOliveGreen"]},
-					"legend": {"title": null, "symbolType": "circle", "orient": "bottom"}
+					"scale": {
+						"range": [
+							"DarkRed",
+							"DarkOliveGreen"
+						]
+					},
+					"legend": {
+						"title": null,
+						"symbolType": "circle",
+						"orient": "top-left"
+					}
 				}
 			}
 		}
 	]
 }
-
-	

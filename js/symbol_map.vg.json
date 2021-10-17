@@ -45,6 +45,7 @@
                                 "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/fire_data.csv"
                 },
                 "width": "container",
+                "height": 100,                
                 "params": [{
                         "name": "time_brush",
                         "select": {"type": "interval", "encodings": ["x"]}

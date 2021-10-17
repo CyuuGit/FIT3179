@@ -5,74 +5,98 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-  <!-- PureCSS -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
 </head>
 <body>
   <div class="page">
     <div class="container">
-      <h1>The Black Summer of Australia</h1>
+      <div class="col-12">
+        <h1 class="date"></h1>
+        <h1>The Black Summer of Australia</h1>
+        <h1 class="author"></h1>
+      </div>
       <div class="row">
-        <div class="text">
-          <p>The 2019-2020 Australian Bushfire Season, also known as the Black Summer, was a period of intense bushfires that raged throughout Australia. The fires started in June 2019, burning over 17 million hectares of land, destroying 3000 homes, killing or displacing approximately 3 billion animals, and claiming 33 lives. With the assistance of international aid, the final fires were extinguished early May 2020, ending the yearlong tragedy.
-            This visualisation explores the impact that the Black Summer had on the individual states and cities of Australia, as well as provide a visual demonstration of how deadly these bushfires can be, reminding how important it is to plan and prepare when at risk of fire.
+        <div class="col-6">
+            <p>The 2019-2020 Australian Bushfire Season, also known as the Black Summer, was a period of intense bushfires that raged throughout Australia. The fires started in June 2019, burning over 17 million hectares of land, destroying 3000 homes, killing or displacing approximately 3 billion animals, and claiming 33 lives. With the assistance of international aid, the final fires were extinguished early May 2020, ending the yearlong tragedy.
+                Click on the image to learn more about the Black Summer.
             </p>
-          <div id="map" class="map"></div>
+            <p>
+              This visualisation explores the impact that the Black Summer had on the individual states and cities of Australia, as well as provide a visual demonstration of how deadly these bushfires can be, reminding how important it is to plan and prepare when at risk of fire.
+            </p>
+        </div>
+        <div class="col-6">
+          <a href ="https://www.aph.gov.au/About_Parliament/Parliamentary_Departments/Parliamentary_Library/pubs/rp/rp1920/Quick_Guides/AustralianBushfires" target="_blank" rel="noopener noreferrer">
+            <img class="intro_img" src="images/bushfire1.png" alt="Australian Bushfire">
+          </a>
         </div>
       </div>
+
+      <div class="line"></div> 
+
+      <div class="col-12">
+        <h2>Visualising the Fire Spread</h2>
+        <div class="text">The map below visualises the locations affected by the bushfire. Select a date range in the line chart and drag to observe how the bushfires developed over time.</div>
+        <div id="map" class="map"></div>
+        <div class="fineprint">(*Note: Due to a lot of data points, the loading takes time so please wait.)</div>
+      </div>
+      <div class="line"></div> 
     </div>
-        
+         
     <div class="container">
       <div class="row">
-        <div class="col">
-          <h2>FLEX TAPE</h2>
+        <div class="col-6">
+          <h2>Analysis of Forest Damage</h2>
           <div class="textleft">
             <p>Now thats a lotta damage</p>
           </div>
         </div>
-        <div class="col">
+        <div class="col-6">
           <div id="bar" class="bar"></div>
         </div>
       </div>
-      
-      <div class="container">
-        <h2>Temperature Observations</h2>
-        <div class="row">
-          <div class="text">
-            <div id="heat" class="map"></div>
-          </div>
-        </div>
-      </div>
+    </div>
 
-      <div class="container">
-        <h2>Change in Air Quality</h2>
-        <div class="row">
-          <div class="text">
-            <div id="line" class="map"></div>
-          </div>
+    <div class="line"></div> 
+
+    <div class="container">
+      <h2>Temperature Observations</h2>
+      <div class="row">
+        <div class="text">
+          <div id="heat" class="map"></div>
         </div>
       </div>
+    </div>
+
+    <div class="line"></div> 
+    
+    <div class="container">
+      <h2>Change in Air Quality</h2>
+      <div class="row">
+        <div class="text">
+          <div id="line" class="map"></div>
+        </div>
+      </div>
+    </div>
     
       
       
 
   </div>
   <script type="text/javascript">
+  /*
     var spec2 = "js/symbol_map.vg.json";
     vegaEmbed("#map", spec2, { actions: false })
       .then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       })
       .catch(console.error);
-
+*/
   var spec2 = "js/bar_chart.vg.json";
   vegaEmbed("#bar", spec2, { actions: false })
     .then(function (result) {
