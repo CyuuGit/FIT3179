@@ -2,8 +2,8 @@
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
         "background": "transparent",    
         "vconcat": [{
-                "width": "container",
-                "height": "container",
+                "width": 1000,
+                "height": 500,
                 "layer": [
                         {
                                 "data": { 
@@ -55,7 +55,7 @@
                         "url":
                                 "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/fire_data.csv"
                 },
-                "width": "container",
+                "width": 1000,
                 "height": 100,                
                 "params": [{
                         "name": "time_brush",
@@ -66,12 +66,19 @@
                         "x": {
                                 "field": "acq_date",
                                 "timeUnit": "yearmonthdate",
-                                "title": "Select a range of dates"
+                                "axis": {
+                                        "title": "Select a date range",
+                                        "grid": false
+                                }
                         },
                         "y": {
                                 "aggregate": "sum",
                                 "field": "acq_date",
-                                "title": "Number of Fires Detected"
+                                "axis": {
+                                        "title": "Total Fires Detected",
+                                        "grid": false,
+                                        "labels": false
+                                }
                         },
                         "tooltip": [
                                 {"aggregate": "sum", "field": "acq_date", "title": "Fires detected "}

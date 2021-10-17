@@ -24,7 +24,7 @@
 					"type": "nominal",
 					"axis": {
 						"title": "Jurisdiction",
-						"titleFontSize": 10,
+						"titleFontSize": 12,
 						"labelAngle": -45
 					}
 				},
@@ -33,7 +33,7 @@
 					"type": "quantitative",
 					"axis": {
 						"title": "Area (10^3 hectares)",
-						"titleFontSize": 10,
+						"titleFontSize": 12,
 						"grid": false
 
 					}

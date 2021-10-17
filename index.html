@@ -49,8 +49,13 @@
       <div class="col-12">
         <h2>Visualising the Fire Spread</h2>
         <div class="text">The map below visualises the locations affected by the bushfire. Select a date range in the line chart and drag to observe how the bushfires developed over time.</div>
+      </div>
+      <div class="col-12">
         <div id="map" class="map_chart"></div>
-        <div class="fineprint">(*Note: Due to a lot of data points, the loading takes time so please wait.)</div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="fineprint">🖱️ Hover mouse to open tooltips,<i class="fas fa-mouse-pointer"></i> click and drag to select date range (*Note: Due to a lot of data points, the loading takes time so please wait.) </div>
       </div>
       <div class="line"></div> 
     </div>
@@ -61,6 +66,7 @@
           <div class="textleft">
             <h2>Analysis of Forest Damage</h2>
             <p>The Australian Department of Agriculture, Water and the Environment (ABARES) estimated a total fire area of <b><i>10,331,000 hectares</i></b>. Within the total fire area, <b><i>83%</i></b> of the area burned was forested land. This resulted in approximately <b><i>8,341,000 hectares</i></b> of forest land succumbing to the fires.</p>
+            <div class="help">🖱️ Hover mouse to open tooltips,<i class="fas fa-mouse-pointer"></i> click and select to filter state</div>
             <div id="pie" class="pie_chart"></div>
           </div>
         </div>
@@ -82,11 +88,12 @@
         </div>
         <div class="col-6">
           <div class="textright" style="padding-right: 60px;">
-            <h2>Temperature Observations</h2>
-            <p>Bushfires are known to occur more frequently during summer as this is when the ambient temperature registers <b><i>HIGHEST</i></b>. This is because the high temperatures allow fuels to be closer to its ignition point and pre-heated fuel loads burn faster. 
+            <h2>Temperature Analysis</h2>
+            <p>Bushfires are known to occur more frequently during summer as this is when the ambient temperature registers <b><i>HIGHEST</i></b>as high temperatures allow fuels to be closer to its ignition point and pre-heated fuel loads burn faster. 
               Dry air <b><i>intensifies</i></b> fires at low humidity because plants release their moisture more easily, leaving them dryer and more suited for ignition.
               <br>Winds can blow fires into the direction of fresh fuel, igniting and spreading the flames whilst providing a continuous supply of oxygen. Wind speeds around <b><i>12-15 km/h</i></b> have significant differences in behaviour of bushfires, even a slight increase can drastically increase the fires behaviour and advancement.
             </p>
+            <div class="help" style="margin-top: -20px;">🖱️ Hover mouse to open tooltips,<i class="fas fa-mouse-pointer"></i> click and select to filter state</div>
           </div>
         </div>
         <div class="line"></div> 
@@ -101,6 +108,7 @@
         <p>Smoke, a by-product of bushfires, contributes to the pollution levels as Carbon Dioxide and soot is released into the atmosphere. PM2.5 particles (diameter less than 2.5 micrometres) are very small particles that are usually found in smoke increase the air pollution levels, degrading the air quality. Here, we observe the air quality during the Black Summer fires.</p>
       </div>
       <div id="line" class="line_chart"></div>
+      <div class="fineprint">🖱️ Hover mouse to open tooltips,<i class="fas fa-mouse-pointer"></i> click and select to filter state and click legend to change highlights</div>
     </div>
     
       
@@ -108,16 +116,16 @@
 
   </div>
   <script type="text/javascript">
-
-  var spec2 = "js/symbol_map.vg.json";
-  $( document ).ready(function() {
+  $( window ).on( "load", function() { 
+    var spec2 = "js/symbol_map.vg.json";
     vegaEmbed("#map", spec2, { actions: false })
     .then(function (result) {
+      console.log("hello")
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     })
-    .catch(console.error);
+    .catch(console.error); 
   });
-  
+    
 
   var spec2 = "js/bar_chart.vg.json";
   vegaEmbed("#bar", spec2, { actions: false })
@@ -133,7 +141,7 @@
     })
     .catch(console.error);
 
-  var spec2 = "js/line_chart.vg.json";
+    var spec2 = "js/line_chart.vg.json";
   vegaEmbed("#line", spec2, { actions: false })
     .then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -146,6 +154,8 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     })
     .catch(console.error);
+
+    
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
