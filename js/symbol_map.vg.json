@@ -1,5 +1,6 @@
 {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",     
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
+        "background": "transparent",    
         "vconcat": [{
                 "width": "container",
                 "height": "container",
@@ -17,7 +18,10 @@
                                         "url":
                                                 "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/fire_data.csv"
                                 },
-                                "transform": [{"filter": {"param": "time_brush"}}],
+                                "transform": [
+                                        {"filter": {"param": "time_brush"}},
+                                        {"calculate": "datum.bright_ti4 - 273.15", "as": "temp_celsius"}
+                                ],
                                 "mark": {
                                         "type": "circle"
                                 },
@@ -33,7 +37,14 @@
                                                         "scheme": "reds"
                                                 },
                                                 "title": "Brightness Temperature of Fire Pixel measured from space in Kelvin "
-                                        }
+                                        },
+                                        "tooltip": [
+                                                {"field": "acq_date", "timeUnit": "yearmonthdate", "type": "temporal", "title": "Acquired Date "},
+                                                {"field": "latitude", "type": "quantitative", "title": "Latitude "},
+                                                {"field": "longitude", "type": "quantitative", "title": "Longitude "},
+                                                {"field": "bright_ti4", "type": "quantitative", "title": "Brightness Temperature (Kelvin) "},
+                                                {"field": "temp_celsius", "type": "quantitative", "title": "Brightness Temperature (Celsius) "}
+                                        ]
                                 }
                                 
                         }
@@ -60,9 +71,12 @@
                         "y": {
                                 "aggregate": "sum",
                                 "field": "acq_date",
-                                "title": "Number of Fires Detected",
-                                "axis": null
-                        }
+                                "title": "Number of Fires Detected"
+                        },
+                        "tooltip": [
+                                {"aggregate": "sum", "field": "acq_date", "title": "Fires detected "}
+                        ]
+
                 }
         }],
         "config": {"legend": {"orient": "top-right", "direction": "horizontal"}}

@@ -2,9 +2,10 @@
 	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 	"title": {
 		"text": "Comparing fire damage of different States",
-		"fontSize": 20
+		"fontSize": 16
 	},
 	"width": "container",
+	"height": "container",
 	"background": "transparent",
 	"data": {
 		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/table1.csv"
@@ -13,7 +14,7 @@
 		{
 			"mark": {
 				"type": "bar",
-				"xOffset": -15,
+				"xOffset": -13,
 				"size": 25,
 				"color": "DarkRed"
 			},
@@ -21,23 +22,35 @@
 				"x": {
 					"field": "State",
 					"type": "nominal",
-					"title": "Jurisdiction"
+					"axis": {
+						"title": "Jurisdiction",
+						"titleFontSize": 10,
+						"labelAngle": -45
+					}
 				},
 				"y": {
 					"field": "fire_area",
 					"type": "quantitative",
 					"axis": {
-						"title": "Area (10^3 hectares)"
+						"title": "Area (10^3 hectares)",
+						"titleFontSize": 10,
+						"grid": false
+
 					}
-				}
+				},
+				"tooltip": [
+					{"field": "State", "type": "nominal", "title": "State"},
+					{"field": "fire_area", "type": "quantitative", "title": "Total Fire Area (10^3 hectares)"},
+					{"field": "burnt_area", "type": "quantitative", "title": "Total Forest in Fire Area (10^3 hectares)"}
+				]
 			}
 		},
 		{
 			"mark": {
 				"type": "bar",
-				"xOffset": 15,
+				"xOffset": 13,
 				"size": 25,
-				"color": "DarkOliveGreen"
+				"color": "Orange"
 			},
 			"encoding": {
 				"x": {
@@ -48,7 +61,12 @@
 				"y": {
 					"field": "burnt_area",
 					"type": "quantitative"
-				}
+				},
+				"tooltip": [
+					{"field": "State", "type": "nominal", "title": "State"},
+					{"field": "fire_area", "type": "quantitative", "title": "Total Fire Area (10^3 hectares)"},
+					{"field": "burnt_area", "type": "quantitative", "title": "Total Forest in Fire Area (10^3 hectares)"}
+				]
 			}
 		},
 		{
@@ -74,7 +92,7 @@
 					"scale": {
 						"range": [
 							"DarkRed",
-							"DarkOliveGreen"
+							"Orange"
 						]
 					},
 					"legend": {

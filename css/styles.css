@@ -23,11 +23,13 @@ h2 {
 }
 
 p { 
-	color: whitesmoke; 
+	color: #FFFAFA; 
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 16px; 
 	line-height: 28px; 
-	margin: 0 0 48px; 
+	margin: 0 0 48px;
+	text-align: justify;
+ 	text-justify: inter-word; 
 }
 
 .text { 
@@ -35,25 +37,16 @@ p {
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 16px; 
 	line-height: 28px; 
-	position: center; 
+	text-align: center; 
 }
 
 .fineprint {
 	color: whitesmoke; 
 	font-family: 'Open Sans', sans-serif; 
-	font-size: 8px; 
+	font-size: 10px; 
 	line-height: 28px; 
 	margin: 0 0 48px;
 	position: center; 
-}
-
-a { 
-	color: #990000; 
-	text-decoration: none; 
-}
-
-a:hover { 
-	text-decoration: underline 
 }
 
 .date { 
@@ -113,53 +106,78 @@ a:hover {
 	position: relative; 
 }
 
-.body {
-	background-image: rgb(40, 43, 43);
+body {
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(104, 26, 20));
 }
 
 .page {
 	width: 80%;
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(148, 37, 29));;
+	height: 100%;
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(104, 26, 20));
 	margin: auto;
 	padding: 50px;
 	padding-top: 35px;
  }
 
-.text {
-	font-family: Tahoma, Arial, Helvetica, sans-serif;
-	font-size: 15px;
-	font-weight: normal;
-	text-align: center;
-	padding-bottom: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
- }
-
  .textleft {
-	font-family: Tahoma, Arial, Helvetica, sans-serif;
-	font-size: 15px;
-	font-weight: normal;
-	text-align: left;
-	padding-bottom: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-right: -100px;
- }
-
- .map {
-	width: 70%;
-	height: 500px;
-	padding-bottom: 100px;
- }
-
- .bar {
 	width: 100%;
-	height: 500px;
-	background-color: whitesmoke;
+	height: 100%;
+	margin-left: 15px;
+	margin-right: 25px;
+ }
+ 
+ .textright {
+	width: 100%;
+	height: 100%;
+	margin-left: 50px;
+ }
+
+ .map_chart {
+	width: 100%;
+	text-align: center;
+	padding-top: 3%;
+	padding-bottom: 3%;
 	border-radius: 20px;
  }
 
+ .bar_chart {
+	width: 100%;
+	height: 100%;
+	background-color: whitesmoke;
+	padding-top: 30px;
+	border-radius: 20px;
+ }
+
+ .pie_chart {
+	 width: 100%;
+	 background-color: whitesmoke;
+	 padding-top: 3%;
+	 padding-bottom: 3%;
+	 text-align: center;
+	 border-radius: 20px;
+ }
+
+ .heatmap {
+	width: 100%;
+	height: 100%;
+	background-color: whitesmoke;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	text-align: center;
+	border-radius: 20px;
+
+ }
+
+ .line_chart {
+	 width: 100%;
+	 background-color: whitesmoke;
+	 padding-top: 3%;
+	 padding-bottom: 3%;
+	 padding-left: 0.25%;
+	 padding-right: 3%;
+	 border-radius: 20px;
+ }
  .intro_img {
 	width: 90%;
-	padding-left: 100px;
+	border-radius: 20px;
  }
