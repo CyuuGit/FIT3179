@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Max Temperature during Black Summer",
+    "title": "Max Temperature (Celsius) during Black Summer",
+    "background": "transparent",
     "data": {
         "url": "https://raw.githubusercontent.com/CyuuGit/FIT3179/master/data/weather.csv"
     },
@@ -37,13 +38,15 @@
             "field": "acq_date",
             "timeUnit": "yearmonth",
             "type": "ordinal",
-            "title": "Month"
+            "title": "Month and Year"
         },
         "color": {
             "field": "Max",
             "type": "quantitative",
             "legend": {
-                "title": null
+                "title": null,
+                "orient": "bottom"
+                
             },
             "scale": {"scheme": "goldred"}
         },
@@ -59,6 +62,31 @@
                 "field": "Max",
                 "type": "quantitative",
                 "title": "Maximum Temperature (Celsius)"
+            },
+            {
+                "field": "Max_wind_direction",
+                "type": "nominal",
+                "title": "Max Wind Direction"
+            },
+            {
+                "field": "Max_wind",
+                "type": "quantitative",
+                "title": "Max Wind Speed (km/h)" 
+            },
+            {
+                "field": "RH_9",
+                "type": "quantitative",
+                "title": "Relative Humidity (9:00 AM)"
+            },
+            {
+                "field": "RH_3",
+                "type": "quantitative",
+                "title": "Relative Humidity (3:00 PM)"
+            },
+            {
+                "field": "Rain",
+                "type": "nominal",
+                "title": "Rain Presence (Y/N)"
             }
         ]
     },
